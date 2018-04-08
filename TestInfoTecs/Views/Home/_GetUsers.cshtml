@@ -1,0 +1,15 @@
+﻿@using TestInfoTecs.Models
+@model IEnumerable<User>
+@{
+    Layout = null;
+}
+@foreach (User user in Model)
+{
+    <tr>
+        <td>@user.Id</td>
+        <td>@user.Name</td>
+        <td>@user.SecondName</td>
+        <td>@user.City.Name</td>
+        <td>@Html.ActionLink("Удалить", "DeleteUser", new { id = user.Id })</td>
+    </tr>
+}

@@ -1,0 +1,38 @@
+﻿@using TestInfoTecs.Models
+@model IEnumerable<User>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Домашняя страница";
+    AjaxOptions ajax = new AjaxOptions
+    {
+        UpdateTargetId = "usersList",
+        Url = Url.Action("GetUsers")
+    };
+}
+<div>
+    @using (Ajax.BeginForm(ajax))
+    {
+        @Html.Label("Поиск по базе:")<br />
+        @Html.TextBox("filter")
+        <input type="submit" value="Найти" />
+        <hr />
+        @Html.ActionLink("Добавить пользователя", "AddUser", "Home")
+        <br />
+        <br />
+        <div class="col-sm-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Имя</td>
+                        <td>Фамилия</td>
+                        <td>Город</td>
+                    </tr>
+                </thead>
+                <tbody id="usersList">
+                    @Html.Action("GetUsers")
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

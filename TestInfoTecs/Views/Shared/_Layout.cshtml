@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/MyScripts")
+    @Styles.Render("~/Content/themes/base")
+</head>
+<body>
+    <br />
+    @Html.ActionLink("Главная страница", "Index", "Home")
+    <hr />
+    @RenderBody()
+</body>
+</html>
